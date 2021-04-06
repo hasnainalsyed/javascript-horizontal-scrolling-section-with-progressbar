@@ -28,9 +28,25 @@ function progressBar() {
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   if (bounding.top < 0) { //run function after the container hits top of screen
     var scrolled = (winScroll / height) * 100;
+    console.log(scrolled);
+    console.log(bounding.width);
+    if (bounding.width == 1349) {
+      if (scrolled > 86) {
+        scrolled = 100;
+      }
+    } else if (bounding.width == 2023) {
+      if (scrolled > 90) {
+        scrolled = 100;
+      }
+    } else {
+
+    }
     document.getElementById("progressBar").style.width = scrolled + "%";
   }
+  if (bounding.top > 0) {
+    document.getElementById("progressBar").style.width = "0%";
+  }
 }
-function onLoad (){ //set progressBar to 0% width on load
+function onLoad() { //set progressBar to 0% width on load
   document.getElementById("progressBar").style.width = scrolled + "%";
 }
